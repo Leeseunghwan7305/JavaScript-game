@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .nav {
+        background-color: pink;
+        border-radius: 15px 15px 0 0;
+        text-align: center;
+        height: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 700px;
+      }
+      .list-box {
+        height: 600px;
+        background-color: cornflowerblue;
+        width: 700px;
+      }
+      .end-box {
+        height: 100px;
+        background-color: pink;
+        border-radius: 0px 0px 15px 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 700px;
+      }
+      .btn {
+        height: 40px;
+        width: 50px;
+        padding: 20px;
+        border: none;
+        border-radius: 10px;
+        background-color: cornsilk;
+        font-size: 50px;
+      }
+      .btn:hover {
+        transform: scale(1.1);
+      }
+      .list {
+        background-color: teal;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+        box-sizing: border-box;
+      }
+      .list-btn {
+        padding: 10px;
+        border-radius: 10px;
+        border: none;
+      }
+      .list-btn:hover {
+        background-color: tomato;
+        transform: scale(1.1);
+      }
+      .text {
+        width: 700px;
+        padding: 20px 0px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="nav">
+      <h1>Shopping List</h1>
+    </div>
+    <div class="list-box">
+      <div class="list">
+        <span class="list-talk">안녕</span>
+        <button class="list-btn">삭제</button>
+      </div>
+    </div>
+    <input class="text" type="text" />
+
+    <footer class="end-box">
+      <button class="btn"><span></span></button>
+    </footer>
+  </body>
+  <script>
+    const lists = document.querySelector(".list-box");
+    const list = document.querySelector(".list");
+    const listTalk = document.querySelector(".list-talk");
+    const listBtn = document.querySelector(".list-btn");
+    const btn = document.querySelector(".btn");
+    const text = document.querySelector(".text");
+
+    function onAdd() {
+      if (text.value == "") {
+        text.focus();
+        return;
+      }
+      let text2 = text.value;
+      console.log(text2);
+      let item = create(text2);
+      lists.appendChild(item);
+      text.value = "";
+    }
+    function create(text2) {
+      list.innerHTML = `<div class="list">
+        <span class="list-talk">안녕</span>
+        <button class="list-btn">삭제</button>
+      </div>`;
+      return list;
+    }
+    listBtn.addEventListener("click", () => {
+      list.remove();
+    });
+    btn.addEventListener("click", () => {
+      onAdd();
+    });
+  </script>
+</html>

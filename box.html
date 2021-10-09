@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>스크롤 박스</title>
+  </head>
+  <style>
+    body {
+      height: 300vh;
+    }
+    div {
+      background-color: pink;
+      height: 100px;
+      width: 100px;
+      margin: 5px;
+    }
+    .speacial-box {
+      background-color: yellow;
+    }
+    .btn {
+      width: 100%;
+      display: flex;
+      background-color: transparent;
+      justify-content: center;
+      position: fixed;
+    }
+  </style>
+  <body>
+    <div class="btn">
+      <button class="up">위로 100px올라가기</button
+      ><button class="move">100px위치로가기</button
+      ><button class="spe">스폐셜박스로가기</button>
+    </div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div class="speacial-box"></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </body>
+  <script>
+    const up = document.querySelector(".up");
+    const move = document.querySelector(".move");
+    const spe = document.querySelector(".spe");
+    const speacial = document.querySelector(".speacial-box");
+    window.addEventListener("scroll", function () {
+      console.log("scrool");
+    });
+    up.addEventListener("click", function () {
+      window.scrollBy({ top: -100, left: 0, behavior: "smooth" });
+    });
+    move.addEventListener("click", function () {
+      window.scrollTo({ top: 300, left: 0, behavior: "smooth" });
+    });
+    spe.addEventListener("click", function () {
+      speacial.scrollIntoView({ behavior: "smooth", block: "center" });
+    });
+  </script>
+</html>
